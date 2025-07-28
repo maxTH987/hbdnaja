@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>สุขสันต์วันเกิดนะที่รัก 💖</title>
+  <title>HBD ที่รัก 🎂</title>
   <style>
     body {
       background-color: #ffe6f0;
@@ -10,25 +10,91 @@
       text-align: center;
       padding: 50px;
     }
+
     h1 {
       color: #ff4d94;
-      font-size: 48px;
+      font-size: 3em;
     }
+
     p {
-      font-size: 24px;
-      color: #333;
+      font-size: 1.5em;
+      color: #444;
+      margin-bottom: 40px;
     }
-    img {
-      width: 250px;
+
+    /* เค้ก */
+    .cake {
+      position: relative;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+    }
+
+    .cake .base {
+      position: absolute;
+      bottom: 0;
+      width: 200px;
+      height: 100px;
+      background: #ff6699;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .cake .icing {
+      position: absolute;
+      bottom: 100px;
+      width: 200px;
+      height: 30px;
+      background: #fff0f5;
       border-radius: 20px;
-      margin-top: 20px;
     }
+
+    .cake .candle {
+      position: absolute;
+      top: 20px;
+      left: 90px;
+      width: 20px;
+      height: 60px;
+      background: #ffcc00;
+      border-radius: 5px;
+      animation: bounce 1s infinite ease-in-out;
+    }
+
+    .cake .flame {
+      position: absolute;
+      top: -15px;
+      left: 5px;
+      width: 10px;
+      height: 15px;
+      background: orange;
+      border-radius: 50% 50% 0 0;
+      animation: flicker 0.3s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.2); opacity: 0.7; }
+    }
+
   </style>
 </head>
 <body>
-  <h1>สุขสันต์วันเกิดนะที่รัก 💕</h1>
-  <p>ขอให้ปีนี้เป็นปีที่เต็มไปด้วยความสุขและรอยยิ้ม<br>รักมากที่สุดเลยนะ 🥰</p>
-  <img src="https://i.imgur.com/xxxxxx.jpg" alt="รูปแฟน">
-  <p>จาก: คนที่รักเธอที่สุด</p>
+  <h1>สุขสันต์วันเกิดนะจ๊ะ 🎉</h1>
+  <p>ขอให้วันนี้และทุกวันเต็มไปด้วยรอยยิ้มและความสุขนะ 💖</p>
+
+  <div class="cake">
+    <div class="icing"></div>
+    <div class="base"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <p>จาก: คนที่รักเธอที่สุด 🥰</p>
 </body>
 </html>
