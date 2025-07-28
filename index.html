@@ -2,97 +2,145 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>HBD ที่รัก 🎂</title>
+  <title>สุขสันต์วันเกิดที่รัก 🎂</title>
   <style>
+    /* ตั้งค่าพื้นฐาน */
     body {
       background-color: #ffe6f0;
       font-family: 'Kanit', sans-serif;
       text-align: center;
-      padding: 50px;
+      overflow-x: hidden;
+      padding: 50px 20px;
     }
-
     h1 {
-      color: #ff4d94;
+      color: #d63384;
       font-size: 3em;
+      margin-bottom: 10px;
     }
-
     p {
-      font-size: 1.5em;
-      color: #444;
-      margin-bottom: 40px;
+      font-size: 1.4em;
+      color: #555;
+      margin-bottom: 30px;
     }
-
-    /* เค้ก */
+    
+    /* เค้กวันเกิด */
     .cake {
       position: relative;
+      width: 250px;
       margin: 0 auto;
-      width: 200px;
-      height: 200px;
     }
-
-    .cake .base {
-      position: absolute;
-      bottom: 0;
-      width: 200px;
-      height: 100px;
-      background: #ff6699;
+    /* ชั้นฐานเค้ก */
+    .cake .layer {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(145deg, #ff99ac, #ff5c8d);
       border-radius: 0 0 20px 20px;
+      margin-top: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
+    /* ชั้นหน้าบนเค้ก (แสดงเป็น icing) */
     .cake .icing {
-      position: absolute;
-      bottom: 100px;
-      width: 200px;
+      position: relative;
+      width: 100%;
       height: 30px;
       background: #fff0f5;
       border-radius: 20px;
+      margin-top: -15px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
     }
-
+    /* เทียน */
     .cake .candle {
       position: absolute;
-      top: 20px;
-      left: 90px;
+      top: -70px;
+      left: calc(50% - 10px);
       width: 20px;
-      height: 60px;
+      height: 70px;
       background: #ffcc00;
       border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       animation: bounce 1s infinite ease-in-out;
     }
-
-    .cake .flame {
+    .cake .candle::after {
+      content: "";
       position: absolute;
-      top: -15px;
-      left: 5px;
-      width: 10px;
-      height: 15px;
-      background: orange;
+      top: -20px;
+      left: 3px;
+      width: 14px;
+      height: 20px;
+      background: radial-gradient(circle, orange 40%, rgba(255, 165, 0, 0) 70%);
       border-radius: 50% 50% 0 0;
       animation: flicker 0.3s infinite alternate;
     }
-
+    
     @keyframes bounce {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      50% { transform: translateY(-8px); }
       100% { transform: translateY(0); }
     }
-
     @keyframes flicker {
       0% { transform: scale(1); opacity: 1; }
       100% { transform: scale(1.2); opacity: 0.7; }
     }
-
+    
+    /* อนิเมชันหัวใจตก */
+    .falling-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+    .heart {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      color: #ff4d94;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>สุขสันต์วันเกิดนะจ๊ะ 🎉</h1>
-  <p>ขอให้วันนี้และทุกวันเต็มไปด้วยรอยยิ้มและความสุขนะ 💖</p>
+  <h1>สุขสันต์วันเกิดที่รัก 🎉</h1>
+  <p>ขอให้วันนี้และทุกวันเต็มไปด้วยความสุขนะ 💖</p>
 
+  <!-- เค้กวันเกิด -->
   <div class="cake">
+    <!-- ชั้นบนของเค้ก -->
     <div class="icing"></div>
-    <div class="base"></div>
-    <div class="candle">
-      <div class="flame"></div>
-    </div>
+    <!-- ชั้นเค้กที่ 1 -->
+    <div class="layer"></div>
+    <!-- ชั้นเค้กที่ 2 -->
+    <div class="icing"></div>
+    <div class="layer"></div>
+    <!-- เทียน -->
+    <div class="candle"></div>
+  </div>
+
+  <!-- falling hearts: สร้างหัวใจตกลงมาจากด้านบน -->
+  <div class="falling-hearts">
+    <!-- หัวใจแต่ละอันปรับตำแหน่ง และความเร็วผ่าน inline style -->
+    <div class="heart" style="left: 5%; animation-duration: 6s; animation-delay: 0s;">&#10084;</div>
+    <div class="heart" style="left: 20%; animation-duration: 7s; animation-delay: 1s;">&#10084;</div>
+    <div class="heart" style="left: 35%; animation-duration: 5s; animation-delay: 0.5s;">&#10084;</div>
+    <div class="heart" style="left: 50%; animation-duration: 8s; animation-delay: 2s;">&#10084;</div>
+    <div class="heart" style="left: 65%; animation-duration: 6.5s; animation-delay: 1.5s;">&#10084;</div>
+    <div class="heart" style="left: 80%; animation-duration: 7.2s; animation-delay: 0.8s;">&#10084;</div>
+    <div class="heart" style="left: 90%; animation-duration: 5.8s; animation-delay: 1.2s;">&#10084;</div>
   </div>
 
   <p>จาก: คนที่รักเธอที่สุด 🥰</p>
